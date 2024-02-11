@@ -1,0 +1,74 @@
+<div class="container">
+  <mat-card>
+    <mat-card-header class="mat-elevation-z0">
+      <mat-card-subtitle
+        >Les renseignements nécessaires au calcul de vos
+        aides</mat-card-subtitle
+      >
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="formProject" (submit)="submit()">
+        <mat-radio-group formControlName="owner">
+          @if (formProject.get('owner')?.invalid && formProject.touched ) {
+          <mat-error>{{ getErrorMessage("owner") }}</mat-error
+          >}
+          <mat-label>Vous êtes: </mat-label>
+          <mat-radio-button checked="true" value="owner">
+            Propriétaire
+          </mat-radio-button>
+          <mat-radio-button value="locataire">Locataire </mat-radio-button>
+        </mat-radio-group>
+
+        <mat-form-field>
+          <mat-label>Combien de personnes composent votre foyer?</mat-label>
+          <input
+            matInput
+            type="number"
+            formControlName="number_peoples"
+            min="1"
+          />
+        </mat-form-field>
+
+        <mat-form-field title="Les revenus du foyer (entre 10k et 100k)">
+          <mat-label
+            >À combien s'élève le revenu total de votre foyer fiscal
+            ?</mat-label
+          >
+
+          <input
+            matInput
+            type="number"
+            formControlName="household_income"
+            min="10000"
+            max="100000"
+          />
+          @if (formProject.get('household_income')?.invalid) {
+          <mat-error>Les revenus du foyer (entre 10k et 100k)</mat-error>}
+        </mat-form-field>
+        <mat-form-field title="La surface du bien (m2)">
+          <mat-label
+            >Quelle est la surface de votre logement ? (en m²)</mat-label
+          >
+          <input
+            matInput
+            type="number"
+            formControlName="surface_area"
+            min="0"
+          />
+        </mat-form-field>
+
+        <button
+          mat-raised-button
+          matStepperNext
+          [disabled]="formProject.invalid"
+          class="btn-primary"
+        >
+          CONTINUER
+        </button>
+        <button mat-raised-button class="btn-primary" matStepperPrevious>
+          Retour
+        </button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

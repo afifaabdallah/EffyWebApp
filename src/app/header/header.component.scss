@@ -1,0 +1,29 @@
+mat-toolbar {
+  background: var(--primary);
+  color: white;
+  justify-content: flex-start;
+  height: 80px;
+
+  .logo {
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  .app-title-header::before {
+    content: "";
+    width: 1px;
+    height: 50px;
+    display: block;
+    background-color: #003250;
+    margin-right: 28px;
+  }
+  .app-title-header {
+    max-width: calc(100% - 280px);
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    color: var (--secondary);
+    margin-left: 28px;
+    display: flex;
+    align-items: center;
+  }
+}

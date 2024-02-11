@@ -1,0 +1,13 @@
+<mat-toolbar
+  fxLayout="flex-row"
+  class="d-flex flex-row flex-justify-content-between flex-align-items-center p-10"
+>
+  <a href="/" class="logo p-20">
+    <img id="logo" src="./assets/logo_effy.svg" alt="effy" />
+  </a>
+  <div [fxHide.xs]="true" [fxHide.sm]="true" class="app-title-header">
+    <span>
+      {{ title }}
+    </span>
+  </div>
+</mat-toolbar>

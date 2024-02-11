@@ -1,0 +1,42 @@
+<div *ngIf="user?.project" class="container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-subtitle>
+        Merci {{ user.civil_status | civilityGender }}
+        {{ user.first_name | titlecase }}
+        {{ user.last_name | uppercase }}
+      </mat-card-subtitle>
+    </mat-card-header>
+
+    <!-- if the user is not eligible (not owner)   -->
+    <mat-card-content *ngIf="!(user.project.owner == 'owner')">
+      <p class="p-20">
+        Désolé ! vous n'êtes pas éligible à notre programme d'aides et
+        d'accompagnement car vous n'êtes pas propriétaire.
+      </p>
+    </mat-card-content>
+
+    <!-- if the user is owner     -->
+    <mat-card-content *ngIf="user.project.owner == 'owner'">
+      <div *ngIf="user.project.primeEffy > 0">
+        <p class="p-20">
+          Félicitations ! Vous êtes éligible à notre programme d'aides et
+          d'accompagnement.
+          <br /><span>
+            Montant accordé :
+            {{ user.project.primeEffy | number : "2.0-2" }} euros.
+          </span>
+        </p>
+      </div>
+      <div *ngIf="user.project.primeEffy <= 0">
+        <p class="p-20">
+          Désolé! vous n'êtes pas éligible à notre programme d'aides et
+          d'accompagnement.
+        </p>
+      </div>
+    </mat-card-content>
+    <button mat-raised-button class="btn-primary" matStepperPrevious>
+      Retour
+    </button>
+  </mat-card>
+</div>

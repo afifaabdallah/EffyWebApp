@@ -1,0 +1,30 @@
+<app-header [title]="titleHeader"></app-header>
+
+<mat-stepper
+  linear="true"
+  #stepper
+  [orientation]="(stepperOrientation | async)!"
+>
+  <mat-step [stepControl]="userInformationsComponent.formUser">
+    <ng-template matStepLabel>Vos informations</ng-template>
+    <app-user-informations
+      #userInformationsComponent
+      (newUserEvent)="getUser($event)"
+    >
+    </app-user-informations>
+  </mat-step>
+  <mat-step [stepControl]="projectInformationsComponent.formProject">
+    <ng-template matStepLabel>Votre projet</ng-template>
+    <app-project-informations
+      [user]="user"
+      (newEventEvent)="getProject($event)"
+      #projectInformationsComponent
+    ></app-project-informations>
+  </mat-step>
+
+  <mat-step>
+    <ng-template matStepLabel>Vos aides</ng-template>
+    <app-eligibility-recap [user]="user" #recapComponent>
+    </app-eligibility-recap>
+  </mat-step>
+</mat-stepper>
