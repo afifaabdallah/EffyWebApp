@@ -1,6 +1,7 @@
 # EffyWebApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.7.
+https://afifaabdallah.github.io/EffyWebApp/
 
 ## Development server
 
