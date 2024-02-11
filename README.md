@@ -1,5 +1,9 @@
 # EffyWebApp
 
+You can view the deployments: https://afifaabdallah.github.io/EffyWebApp/
+
+## Angular version
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.7.
 
 ## Development server
