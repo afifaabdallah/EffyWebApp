@@ -1,0 +1,11 @@
+image: node:16.14.2-bullseye
+
+stages:
+  - setup
+  - test
+
+install:
+  stage: setup
+  script:
+    - npm ci
+
